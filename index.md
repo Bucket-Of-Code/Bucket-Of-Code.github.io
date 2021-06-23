@@ -1,37 +1,5 @@
-## Welcome to GitHub Pages
+## Welcome to BucketOfCode.com
 
-You can use the [editor on GitHub](https://github.com/Bucket-Of-Code/Bucket-Of-Code.github.io/edit/main/index.md) to maintain and preview the content for your website in Markdown files.
+Hi 👋. My name is Dan Schaefer and this is my personal instance of Stack Overflow and GitHub's Gist.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/Bucket-Of-Code/Bucket-Of-Code.github.io/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+I have been a software developer for over 16 years and there have been countless times where I have found answers to software problems that get me 80% of the answer I'm looking for. I want to capture the whole solution to the very specific problems that I have solved. I hope to help at least one of you to get to your final 20%
