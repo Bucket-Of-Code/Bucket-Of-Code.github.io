@@ -1,0 +1,29 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+code {
+    font-size: 0.75em;
+}
+
+pre code {
+    font-size: 0.875em;
+}
+
+/* Style the breadcrumbs list */
+ul.breadcrumbs {
+    padding: 10px 0;
+    list-style: none;
+
+    /* Display list items side by side */
+    li {
+        display: inline;
+        font-size: 18px;
+    }
+    /* Add a right carrot symbol (>) before/behind each list item */
+    li + li:before {
+        padding: 8px;
+        content: "\003e";
+    }
+}
