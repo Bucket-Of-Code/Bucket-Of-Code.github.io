@@ -23,7 +23,7 @@ services:
     image: jekyll/jekyll:pages
     command: jekyll serve
     ports:
-      - 4000:4000
+      - 4000
     volumes:
       - .:/srv/jekyll
 ```
@@ -88,3 +88,12 @@ The `--watch` option does its best to determine when relevant files have changed
 
 ### Why are my changes not reflected on my site, when I make changes to my `_config.yml` file?
 Unfortunately, the `_config.yml` is excluded from the `--watch` flag. The only way to re-read the config file is to stop and restart the container. If this still doesn't work, try recreating the container with the instructions above.
+
+### When I visit the site in my browser, the site cannot be reached.
+The default port for Jekyll is port 4000 and the output in the console shows `http://0.0.0.0:4000` for the URL. However, that port is is exposed only inside the container. The basic docker-compose file above uses port 4000, but the advanced file exposes the site on port 4001.
+
+Here are a few things to check:
+- Make sure your Docker container is actually running and that the console shows `Server address: `
+- Use `localhost` instead of `0.0.0.0` in your browser
+- Make sure your `docker-compose.yml` file exposes the port
+- Make sure the port you use in the browser matches the port you have exposed in your `docker-compose.yml` file (port `4001` in the case of the advanced file above).
