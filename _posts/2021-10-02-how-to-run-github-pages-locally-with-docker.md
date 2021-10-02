@@ -44,7 +44,7 @@ version: "3.9"
 services:
   jekyll:
     image: jekyll/jekyll:pages
-    command: |
+    command: >
       jekyll serve \
       --watch \  # Enable auto-regeneration of the site when files are modified.
       --force_polling \  # Force watch to use polling
