@@ -1,4 +1,8 @@
-## Welcome to BucketOfCode.com
+---
+layout: default
+title: Welcome to BucketOfCode.com
+---
+# Welcome to BucketOfCode.com
 
 Hi 👋. My name is Dan Schaefer and this is my personal instance of Stack Overflow and GitHub's Gist.
 

@@ -1,0 +1,182 @@
+{% capture page_title -%}
+{{ page.title | default: site.title }}
+{%- endcapture -%}
+{% capture title -%}
+{%- if site.title != page_title -%}
+{{ page_title }} | {{ site.title }}
+{%- else -%}
+{{ page_title }}
+{%- endif -%}
+{%- endcapture -%}
+{% unless page.author == false -%}
+{% if page.author && site.data.authors[page.author] -%}
+{% assign author = site.data.authors[page.author] %}
+{% else -%}
+{% assign author = site.author %}
+{% endif -%}
+{% endunless -%}
+{% if page.description -%}
+{% assign page_description = page.description | strip_html | strip %}
+{% elsif page.excerpt -%}
+{% assign page_description = page.excerpt | strip_html | strip %}
+{% endif -%}
+{% if page.canoncial_url -%}
+{% assign canonical_url = page.canonical_url %}
+{% else -%}
+{% assign canonical_url = page.url | absolute_url %}
+{% endif -%}
+{% if page.image -%}
+{% if page.image.path -%}
+{% assign page_image = page.image %}
+{% assign page_image_path = page.image.path | remove: "/images/" | prepend: "/images/" %}
+{% else -%}
+{% assign page_image_path = page.image | remove: "/images/" | prepend: "/images/" %}
+{% endif -%}
+{% endif -%}
+{% assign site_logo = site.logo | absolute_url -%}
+{% if page.seo.og.type -%}
+{% assign og_type = page.seo.og.type %}
+{% elsif page.seo.type -%}
+{% assign seo_type_lower = page.seo.type | downcase %}
+{% if "article,book,profile" contains seo_type_lower -%}
+{% assign og_type = page.seo.type %}
+{% elsif "website,map" contains seo_type_lower -%}
+{% assign og_type = "website" %}
+{% else -%}
+{% assign og_type = "article" %}
+{% endif -%}
+{% endif -%}
+{% if page.seo.links -%}
+{% assign same_as_links = page.seo.links %}
+{% elsif page.url == "/" && site.social.links -%}
+{% assign same_as_links = site.social.links %}
+{% endif -%}
+{% assign page_modified_at = page.date_modified | default: page.last_modified_at | default: page.date %}
+<!-- Start SEO -->
+<meta http-equiv="content-language" content="{{ site.language }}" />
+<title>{{ title }}</title>
+<meta name="generator" content="Jekyll v{{ jekyll.version }}" />
+<meta property="og:title" content="{{ page_title }}" />
+{% if author -%}
+<meta name="author" content="{{ author.name }}" />
+{% endif -%}
+<meta property="og:locale" content="{{ site.locale }}" />
+{% if page_description -%}
+<meta name="description" content="{{ page_description }}" />
+<meta property="og:description" content="{{ page_description }}" />
+{% endif -%}
+<link rel="canonical" href="{{ canonical_url }}" />
+<meta property="og:url" content="{{ canonical_url }}" />
+<meta property="og:site_name" content="{{ site.title }}" />
+{% if page_image_path -%}
+<meta property="og:image" content="{{ page_image_path | absolute_url }}" />
+{% endif -%}
+{% if page_image.height -%}
+<meta property="og:image:height" content="{{ page_image.height }}" />
+{% endif -%}
+{% if page_image.width -%}
+<meta property="og:image:width" content="{{ page_image.width }}" />
+{% endif -%}
+{% unless page.seo == false -%}
+<meta property="og:type" content="{{ og_type | default: 'article' | downcase }}" />
+{% endunless -%}
+{% if page.date -%}
+<meta property="article:published_time" content="{{ page.date | date_to_xmlschema }}" />
+{% endif -%}
+{% if paginator.previous_page -%}
+<link rel="prev" href="{{ paginator.previous_page_path | absolute_url }}" />
+{% endif -%}
+{% if paginator.next_page -%}
+<link rel="next" href="{{ paginator.next_page_path | absolute_url }}" />
+{% endif -%}
+{% if page_image_path -%}
+<meta property="twitter:card" content="{{ page.twitter.card | default: site.twitter.card | default: "
+  summary_large_image" }}" />
+<meta property="twitter:image" content="{{ page_image_path | absolute_url }}" />
+{% endif -%}
+<meta property="twitter:title" content="{{ page_title }}" />
+{% if page_description -%}
+<meta property="twitter:description" content="{{ page_description }}" />
+{% endif -%}
+<meta property="twitter:site" content="@{{ site.twitter.username | remove:'@' }}" />
+{% if author -%}
+<meta property="twitter:creator" content="@{{ author.twitter }}" />
+{% endif -%}
+<meta property="fb:admins" content="{{ site.facebook.admins }}" />
+<meta property="article:publisher" content="{{ site.facebook.publisher }}" />
+{% if site.webmaster_verifications -%}
+{% if site.webmaster_verifications.google -%}
+<meta name="google-site-verification" content="{{ site.webmaster_verifications.google }}" />
+{%- endif -%}
+
+{% if site.webmaster_verifications.bing -%}
+<meta name="msvalidate.01" content="{{ site.webmaster_verifications.bing }}" />
+{%- endif -%}
+
+{% if site.webmaster_verifications.alexa -%}
+<meta name="alexaVerifyID" content="{{ site.webmaster_verifications.alexa }}" />
+{%- endif -%}
+
+{% if site.webmaster_verifications.yandex -%}
+<meta name="yandex-verification" content="{{ site.webmaster_verifications.yandex }}" />
+{%- endif -%}
+
+{% if site.webmaster_verifications.baidu -%}
+<meta name="baidu-site-verification" content="{{ site.webmaster_verifications.baidu }}" />
+{%- endif %}
+{% endif -%}
+
+{% unless page.seo == false -%}
+<script type="application/ld+json">
+{% capture json_ld -%}
+{
+  {% if author -%}
+  "author":
+  {
+    "@type":"Person",
+    "name":{{ author.name | jsonify }}
+  },
+  {% endif -%}
+  "publisher":
+  {
+    "@type":"Organization",
+    "logo":
+    {
+      "@type":"ImageObject",
+      "url":{{ site.logo | absolute_url | jsonify }}
+    },
+    "name":{{ site.title | jsonify }}
+  },
+  "description":{{ page_description | jsonify }},
+  "@type":{{ page.seo.type | default: "Article" | jsonify }},
+  "headline":{{ page_title | jsonify }},
+  "url":{{ page.url | absolute_url | jsonify }},
+  {% if page.date -%}
+    "datePublished":{{ page.date | date_to_xmlschema | jsonify }},
+  {% endif -%}
+  {% if page_modified_at -%}
+    "dateModified":{{ page_modified_at | date_to_xmlschema | jsonify }},
+  {% endif -%}
+  {% if page_image_path -%}
+    "image":{{ page_image_path | absolute_url | jsonify }},
+  {% endif -%}
+  {% if same_as_links -%}
+    "sameAs":{{ same_as_links | jsonify }},
+  {% endif -%}
+  {% if page.seo.json_ld -%}
+    {% capture custom_json_ld -%}
+    {{- page.seo.json_ld | jsonify -}}
+    {%- endcapture -%}
+    {% capture length_minus_1 %}{{ custom_json_ld.size | minus: 1 }}{% endcapture -%}
+    {{ custom_json_ld | truncate: length_minus_1, '' | remove_first: '{' }},
+  {% endif -%}
+  "@context":"https://schema.org"
+}
+{%- endcapture %}
+{%- assign json_ld_lines = json_ld | newline_to_br | split: '<br />' %}
+{%- for line in json_ld_lines -%}
+{{ line | strip }}
+{%- endfor -%}
+</script>
+{%- endunless %}
+<!-- End SEO -->
