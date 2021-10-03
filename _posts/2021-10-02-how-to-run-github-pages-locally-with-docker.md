@@ -3,7 +3,7 @@ layout: post
 permalink: /how-to-run-github-pages-locally-with-docker
 ---
 
-Here is a quick and easy way to run a [Github Pages](https://pages.github.com/) site locally using the [Jekyll Docker image for Github Pages](https://hub.docker.com/r/jekyll/jekyll/tags?name=pages&page=1&ordering=last_updated). This allows you to see and test your changes to your Github Pages site before pushing them to Github. This solution only requires Docker to be installed and does not require you to install Ruby to run Jekyll. Docker is a pretty common technology used these days to be able to run applications locally. And as a developer, you are more likely to have Docker than Ruby installed on your machine...unless, of course, you are a Ruby developer.
+Here is a quick and easy way to test a [Github Pages](https://pages.github.com/) site locally using the [Jekyll Docker image for Github Pages](https://hub.docker.com/r/jekyll/jekyll/tags?name=pages&page=1&ordering=last_updated). This allows you to see and test your changes to your Github Pages site before pushing them to Github. This solution only requires Docker to be installed and does not require you to install Ruby to run Jekyll. Docker is a pretty common technology used these days to be able to run applications locally. And as a developer, you are more likely to have Docker than Ruby installed on your machine...unless, of course, you are a Ruby developer.
 
 ## Prequisites
 - [Docker](https://www.docker.com/products/personal)
