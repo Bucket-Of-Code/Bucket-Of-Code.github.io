@@ -27,3 +27,11 @@ ul.breadcrumbs {
         content: "\003e";
     }
 }
+
+img {
+    border: 0;
+    box-shadow: none;
+    -webkit-box-shadow: none;
+    max-width: 100%;
+    height: auto;
+}

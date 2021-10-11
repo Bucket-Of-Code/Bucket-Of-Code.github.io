@@ -28,9 +28,9 @@
 {% if page.image -%}
 {% if page.image.path -%}
 {% assign page_image = page.image %}
-{% assign page_image_path = page.image.path | remove: "/images/" | prepend: "/images/" %}
+{% assign page_image_path = page.image.path %}
 {% else -%}
-{% assign page_image_path = page.image | remove: "/images/" | prepend: "/images/" %}
+{% assign page_image_path = page.image %}
 {% endif -%}
 {% endif -%}
 {% assign site_logo = site.logo | absolute_url -%}
