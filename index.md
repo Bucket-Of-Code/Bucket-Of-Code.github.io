@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Welcome to BucketOfCode.com
+excerpt: My name is Dan Schaefer and BucketOfCode.com is my personal instance of Stack Overflow and GitHub's Gist.
 ---
 # Welcome to BucketOfCode.com
 
