@@ -3,12 +3,24 @@
 
 @import "{{ site.theme }}";
 
+html, body {
+    font-size: 17px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 20px 0 10px;
+}
+
 code {
-    font-size: 0.75em;
+    font-size: 75%;
 }
 
 pre code {
-    font-size: 0.875em;
+    font-size: 120%;
+}
+
+#main_content {
+    padding-top: 20px;
 }
 
 /* Style the breadcrumbs list */
