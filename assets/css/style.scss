@@ -47,3 +47,74 @@ img {
     max-width: 100%;
     height: auto;
 }
+
+/* Brand colors, taken from the logo */
+$brand-navy: #04173a;
+$brand-blue: #066cff;
+$brand-tint: #f3f7ff;
+
+body {
+    background: $brand-navy;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: $brand-navy;
+    font-family: "Montserrat", "Lucida Grande", Calibri, Helvetica, Arial, sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+a {
+    color: $brand-blue;
+}
+
+/* Header: white so the logo (which has a white background) blends in */
+#header_wrap {
+    background: #fff;
+    border-bottom: 4px solid $brand-blue;
+}
+
+#site_logo {
+    display: inline-block;
+    max-width: 360px;
+    margin-bottom: 10px;
+    line-height: 0;
+}
+
+#site_logo img {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-shadow: none;
+}
+
+#project_tagline {
+    color: $brand-navy;
+    text-shadow: none;
+}
+
+#main_content_wrap {
+    background: $brand-tint;
+    border-top: 0;
+    border-bottom: 4px solid $brand-blue;
+}
+
+#footer_wrap {
+    background: $brand-navy;
+}
+
+blockquote {
+    border-left-color: $brand-blue;
+}
+
+th {
+    background: $brand-navy;
+}
+
+table, td {
+    border-color: $brand-navy;
+}
+
+footer a:hover {
+    color: #fff;
+}
