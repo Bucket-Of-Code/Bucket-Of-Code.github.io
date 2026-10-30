@@ -1,6 +1,8 @@
 ---
 layout: post
-permalink: /how-to-run-github-pages-locally-with-docker
+permalink: /blog/how-to-run-github-pages-locally-with-docker
+redirect_from:
+  - /how-to-run-github-pages-locally-with-docker
 excerpt: Using the Jekyll Docker image for Github Pages, you can easily test a Github Pages site locally before pushing to Github.
 image:
   path: /assets/img/docker-plus-jekyll.webp
