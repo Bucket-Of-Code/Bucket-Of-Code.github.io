@@ -12,5 +12,6 @@ plugins:
   - jekyll-sitemap
 
 exclude:
+  - .gitignore
   - docker-compose.yml
   - site.github.json  # a file containing the contents of site.github variable on Github
