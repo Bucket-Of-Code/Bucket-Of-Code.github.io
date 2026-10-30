@@ -3,18 +3,21 @@ services:
   jekyll:
     image: jekyll/jekyll:pages
     command: >
-      jekyll serve \
-      --watch \
-      --force_polling \
-      --drafts \
-      --unpublished \
-      --future \
-      --verbose \
-      --trace \
-      --strict_front_matter \
+      jekyll serve
+      --host=0.0.0.0
+      --watch
+      --force_polling
+      --drafts
+      --unpublished
+      --future
+      --verbose
+      --trace
+      --strict_front_matter
       -d /tmp/_site
     ports:
       - 4002:4000
+    environment:
+      PAGES_REPO_NWO: "doesnot/matter"
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:4000"]
       interval: 1m30s
