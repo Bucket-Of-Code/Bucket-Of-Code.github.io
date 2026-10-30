@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1254 1254" width="512" height="512" role="img" aria-labelledby="title">
+  <title id="title">Bucket of Code logo</title>
+  <!-- Code symbol -->
+  <g fill="none" stroke="#066cff" stroke-width="56" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M497 298 L378 405 L487 515"/>
+    <path d="M752 298 L874 405 L752 515"/>
+    <path d="M678 215 L553 568"/>
+  </g>
+  <!-- Bucket -->
+  <g fill="none" stroke="#04173a" stroke-linecap="round" stroke-linejoin="round">
+    <!-- rim: lower lip and open back edge -->
+    <path stroke-width="46" d="M285 548 C285 600 440 632 627 632 C814 632 970 600 970 548"/>
+    <path stroke-width="46" d="M270 548 C270 515 310 495 360 480"/>
+    <path stroke-width="46" d="M985 548 C985 515 945 495 885 480"/>
+    <!-- body -->
+    <path stroke-width="56" d="M305 610 L385 995 C390 1040 500 1065 627 1065 C754 1065 865 1040 875 995 L948 600"/>
+    <!-- handle -->
+    <path stroke-width="40" d="M800 735 C690 825 540 900 410 905 C310 905 250 865 270 790 C275 765 285 750 295 735"/>
+  </g>
+  <circle cx="828" cy="705" r="50" fill="#04173a"/>
+</svg>
